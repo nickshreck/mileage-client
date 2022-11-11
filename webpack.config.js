@@ -21,13 +21,7 @@ module.exports = {
     },
     disableHostCheck: true,
     compress: true,
-    host: 'localhost',
-    proxy: {
-      '/': {
-        target: 'http://localhost:3000',
-        secure: false,
-      },
-    },
+    host: 'localhost'
   },
 
   module: {
