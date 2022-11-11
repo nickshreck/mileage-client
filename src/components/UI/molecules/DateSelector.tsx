@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import DropDown from "../atoms/DropDown";
 
-type Props = {
-    setDate: (date: { month: number; year: number }) => void;
-};
-
-export default function DateSelector({ setDate }: Props) {
+export default function DateSelector({
+    date,
+    setDate,
+}: {
+    date: { month: number; year: number };
+    setDate: any;
+}) {
     const years = [
         { label: "2012", value: 2012 },
         { label: "2013", value: 2013 },
@@ -35,8 +37,8 @@ export default function DateSelector({ setDate }: Props) {
         { label: "December", value: 12 },
     ];
 
-    const [month, setMonth] = useState(1);
-    const [year, setYear] = useState(2022);
+    const [month, setMonth] = useState(date.month);
+    const [year, setYear] = useState(date.year);
 
     useEffect(() => {
         setDate({ month, year });
@@ -44,8 +46,8 @@ export default function DateSelector({ setDate }: Props) {
 
     return (
         <>
-            <DropDown data={years} setChange={setYear} />
-            <DropDown data={months} setChange={setMonth} />
+            <DropDown startValue={year} data={years} setChange={setYear} />
+            <DropDown startValue={month} data={months} setChange={setMonth} />
         </>
     );
 }

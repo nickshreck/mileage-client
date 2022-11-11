@@ -1,8 +1,25 @@
-import React, { useState } from "react";
-import DateSelector from "../../UI/molecules/DateSelector";
-import { useFetch } from "../../../hooks/useFetch";
+import React, { useState, useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
 
-export default function Header({ setDate }) {
+export default function Header({ googleProfile }: any) {
+    // console.log("googleProfile", googleProfile);
+
+    const [name, setName] = useState("");
+
+    useEffect(() => {
+        if (googleProfile.givenName) {
+            setName(googleProfile.givenName + "'s");
+        } else {
+            setName("");
+        }
+    }, [googleProfile]);
+
+    // let navigate = useNavigate();
+    // const routeChange = () => {
+    //     let path = `/search`;
+    //     navigate(path);
+    // };
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -28,13 +45,16 @@ export default function Header({ setDate }) {
                         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                     >
                         <li>
-                            <a>Homepage</a>
+                            <a href="/">Trips</a>
                         </li>
                         <li>
-                            <a>Portfolio</a>
+                            <a href="/upload">Upload</a>
                         </li>
                         <li>
-                            <a>About</a>
+                            <a href="/settings">Settings</a>
+                        </li>
+                        <li>
+                            <a href="/search">Search</a>
                         </li>
                     </ul>
                 </div>
@@ -42,12 +62,17 @@ export default function Header({ setDate }) {
             <div className="navbar-center z-10">
                 <div className="container mx-auto">
                     <div className="flex justify-center content-center">
-                        <DateSelector setDate={setDate} />
+                        <div className="text-xl text-slate-400">
+                            {name} Business Mileage App
+                        </div>
                     </div>
                 </div>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-ghost btn-circle">
+                <button
+                    // onClick={routeChange}
+                    className="btn btn-ghost btn-circle"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"

@@ -5,7 +5,7 @@ import { DateHeader } from "../UI/organisms/DateHeader";
 import Journeys from "../UI/organisms/Journeys";
 import { trpc } from "../../trpc";
 
-export default function ViewAllJourneys({
+export function Search({
     profile,
 }: {
     profile: {

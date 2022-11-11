@@ -7,27 +7,22 @@ import "./index.scss";
 
 const client = new QueryClient();
 
-const App = () => {
+export const App = () => {
     const [trpcClient] = useState(() =>
         trpc.createClient({
-            url: "http://localhost:2000/trpc",
+            url: "http://13.42.46.122:2000/trpc",
+            // url: "http://localhost:2000/trpc",
         })
     );
 
     return (
         <trpc.Provider client={trpcClient} queryClient={client}>
             <QueryClientProvider client={client}>
-                <Main />
+                <Main></Main>
             </QueryClientProvider>
         </trpc.Provider>
     );
 };
 
-const container = document.getElementById("app");
-const root = createRoot(container); // createRoot(container!) if you use TypeScript
-root.render(<App tab="home" />);
-
-// import { createRoot } from 'react-dom/client';
-// const container = document.getElementById('app');
-// const root = createRoot(container); // createRoot(container!) if you use TypeScript
-// root.render(<App tab="home" />);
+const root = createRoot(document.getElementById("app")!);
+root.render(<App />);
