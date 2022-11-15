@@ -4,19 +4,10 @@ import Stats from "../UI/organisms/Stats";
 import { DateHeader } from "../UI/organisms/DateHeader";
 import Journeys from "../UI/organisms/Journeys";
 import { trpc } from "../../trpc";
+import { useUser, useGoogleProfile } from "../UserContext";
 
-export function Search({
-    profile,
-}: {
-    profile: {
-        id: string;
-        email: string;
-        googleId: string;
-        imageUrl: string;
-        name: string;
-        createdAt: string;
-    };
-}) {
+export function Search() {
+    const profile = useUser();
     useEffect(() => {
         console.log("profile", profile);
     }, [profile]);

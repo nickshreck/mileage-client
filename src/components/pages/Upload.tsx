@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-
+import { useUser, useGoogleProfile } from "../UserContext";
 import axios from "axios";
 
 const endpoint = "http://13.42.46.122:2000/upload/";
 // const endpoint = "http://localhost:2000/upload/";
 
-export const Upload = ({ profile }: { profile: any }) => {
+export const Upload = () => {
+    const profile = useUser();
     const [file, setFile] = useState({ selectedFile: null });
     const [progress, setProgress] = useState({ loaded: 0 });
     // this.state = { selectedFile: null, loaded: 0 };
@@ -21,6 +22,8 @@ export const Upload = ({ profile }: { profile: any }) => {
     useEffect(() => {
         console.log("progress", progress.loaded);
     }, [progress.loaded]);
+
+    console.log("googleId", profile);
 
     const handleUpload = () => {
         const data = new FormData();

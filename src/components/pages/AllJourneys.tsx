@@ -4,42 +4,11 @@ import Stats from "../UI/organisms/Stats";
 import { DateHeader } from "../UI/organisms/DateHeader";
 import Journeys from "../UI/organisms/Journeys";
 import { trpc } from "../../trpc";
+import { useUser } from "../UserContext";
 
-export default function ViewAllJourneys({
-    profile,
-}: {
-    profile: {
-        id: string;
-        email: string;
-        googleId: string;
-        imageUrl: string;
-        name: string;
-        createdAt: string;
-    };
-}) {
-    useEffect(() => {
-        console.log("profile", profile);
-    }, [profile]);
+export default function AllJourneys() {
+    const profile = useUser();
 
-    if (profile !== undefined) {
-        return <DisplayJourneys profile={profile}></DisplayJourneys>;
-    } else {
-        return <></>;
-    }
-}
-
-export function DisplayJourneys({
-    profile,
-}: {
-    profile: {
-        id: string;
-        email: string;
-        googleId: string;
-        imageUrl: string;
-        name: string;
-        createdAt: string;
-    };
-}) {
     const [date, setDate] = useState({ month: 1, year: 2022 });
 
     const data = trpc.useQuery([

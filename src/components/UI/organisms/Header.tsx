@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useGoogleProfile } from "../../GoogleAuthContext";
 
-export default function Header({ googleProfile }: any) {
-    // console.log("googleProfile", googleProfile);
+export default function Header() {
+    const googleProfile = useGoogleProfile();
 
     const [name, setName] = useState("");
 
@@ -19,6 +19,13 @@ export default function Header({ googleProfile }: any) {
     //     let path = `/search`;
     //     navigate(path);
     // };
+
+    /* <div>
+    //     <img src={profile.imageUrl} alt="user image" />
+    //     <h3>User Logged in</h3>
+    //     <p>Name: {profile.name}</p>
+    //     <p>Email Address: {profile.email}</p>
+    // </div> */
 
     return (
         <div className="navbar bg-base-100">
