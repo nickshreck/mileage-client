@@ -13,11 +13,9 @@ const Main = () => {
                             <Header></Header>
                             <Router></Router>
                         </>
-                    ) : null}{" "}
-                    // Waiting for User Info
+                    ) : null}
                 </UserProvider>
-            ) : null}{" "}
-            // No Google Login
+            ) : null}
         </GoogleAuthProvider>
     );
 };
