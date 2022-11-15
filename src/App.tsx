@@ -10,7 +10,7 @@ export const App = () => {
 
     const [trpcClient] = useState(() =>
         trpc.createClient({
-            url: "http://13.42.46.122:3000/trpc",
+            url: "http://13.42.46.122/trpc",
             // url: "http://localhost:3000/trpc",
         })
     );
