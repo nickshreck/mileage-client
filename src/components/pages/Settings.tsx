@@ -6,6 +6,8 @@ export const Settings = () => {
     const profile = useUser();
     const deleteAll = trpc.useMutation("deleteAll");
 
+    console.log("heres the profile", profile);
+
     const deleteAllFromDB = () => {
         deleteAll.mutate({
             userId: profile.id,
