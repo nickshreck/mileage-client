@@ -4,7 +4,7 @@ import axios from "axios";
 
 import { URL } from "../../App";
 
-const endpoint = `${URL}/upload/`;
+const endpoint = `${URL}/upload`;
 
 export const Upload = () => {
     const profile = useUser();
