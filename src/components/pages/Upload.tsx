@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useUser, useGoogleProfile } from "../UserContext";
 import axios from "axios";
 
-const endpoint = "http://13.42.46.122:2000/upload/";
-// const endpoint = "http://localhost:2000/upload/";
+import { URL } from "../../App";
+
+const endpoint = `${URL}/upload/`;
 
 export const Upload = () => {
     const profile = useUser();

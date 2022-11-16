@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useUser, useGoogleProfile } from "../UserContext";
 import { trpc } from "../../trpc";
 
-export const Settings = ({ profile }: any) => {
+export const Settings = () => {
+    const profile = useUser();
     const deleteAll = trpc.useMutation("deleteAll");
 
     const deleteAllFromDB = () => {

@@ -7,6 +7,7 @@ const user = {
     googleId: "googleId",
     imageUrl: "imageUrl",
     name: "name",
+    id: "id",
 };
 
 const UserContext = React.createContext(user);
