@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useUser, useGoogleProfile } from "../UserContext";
 import axios from "axios";
 
-import { URL } from "../../App";
+import { URL } from "../../constants";
 
-const endpoint = `${URL}/upload`;
+console.log("URL", URL);
+
+const endpoint = `${URL}/upload/`;
 
 export const Upload = () => {
     const profile = useUser();

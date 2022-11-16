@@ -4,9 +4,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { trpc } from "./trpc";
 import { Main } from "./components/Main";
 import "./index.scss";
-
-// export const URL = "http://localhost:3000";
-export const URL = "http://13.42.46.122:3000";
+import { URL } from "./constants";
 
 export const App = () => {
     const [queryClient] = useState(() => new QueryClient());
